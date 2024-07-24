@@ -1,32 +1,36 @@
 #!/usr/bin/env python3
-""" FIFO caching """
+""" Basic caching """
 from base_caching import BaseCaching
 
 
-class FIFOCache(BaseCaching):
-    """ FIFO Cache class """
+class BasicCache(BaseCaching):
+    """
+    Defines a class for caching information in key-value pairs
+    Methods:
+        put(key, item) - store a key-value pair
+        get(key) - retrieve the value associated with a key
+    """
 
     def __init__(self):
-        """ Initialize """
+        """
+        Initialize the class using the parent class __init__ method
+        """
         super().__init__()
-        self.order = []
 
     def put(self, key, item):
-        """ Add an item in the cache """
+        """
+        Store a key-value pair
+        Args:
+            key: the key to store
+            item: the item to store
+        """
         if key is None or item is None:
             return
-
-        if key in self.cache_data:
-            self.cache_data[key] = item
-        else:
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                first_key = self.order.pop(0)
-                del self.cache_data[first_key]
-                print(f"DISCARD: {first_key}")
-
-            self.cache_data[key] = item
-            self.order.append(key)
+        self.cache_data[key] = item
 
     def get(self, key):
-        """ Get an item by key """
+        """
+        Return the value linked to key
+        If key is None or doesn't exist, return None
+        """
         return self.cache_data.get(key, None)
