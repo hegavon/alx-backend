@@ -3,7 +3,7 @@
 A basic Flask app with Babel setup locale selection & template parameterization
 """
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
+from flask_babel import Babel
 
 
 class Config:
