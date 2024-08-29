@@ -1,1 +1,7 @@
 base_caching.py
+node_modules
+__pycache__
+package-lock.json
+redis-6.0.10.tar.gz
+redis-6.0.10
+.babelrc
